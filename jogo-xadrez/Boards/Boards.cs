@@ -35,6 +35,10 @@ namespace Board
 
         public void putPiece(Pieces p, Position pos)//put the piece in the board
         {
+            if (existPiece(pos))
+            {
+                throw new BoardException("Theres a piece in this position");
+            }
             PiecesBoard[pos.Row, pos.Column] = p;
             p.Position = pos;
         }
