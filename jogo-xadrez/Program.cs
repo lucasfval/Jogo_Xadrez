@@ -7,8 +7,8 @@ namespace jogo_xadrez
     {
         static void Main(string[] args)
         {
-            Position p = new Position(3, 4);
-            Console.WriteLine(p);
+            Boards board = new Boards(8, 8);
+
         }
     }
 }
