@@ -22,10 +22,41 @@ namespace Board
             return PiecesBoard[RowBoard, ColumnBoard];
         }
 
-        public void putPiece(Pieces p, Position pos)
+        public Pieces piece(Position pos) //return a piece position
+        {
+            return PiecesBoard[pos.Row, pos.Column];
+        }
+
+        public bool existPiece(Position pos)
+        {
+            validatePosition(pos);
+            return piece(pos) != null;
+        }
+
+        public void putPiece(Pieces p, Position pos)//put the piece in the board
         {
             PiecesBoard[pos.Row, pos.Column] = p;
             p.Position = pos;
+        }
+
+        public bool positionValue(Position pos) //Test if position exists in the board.
+        {
+            if(pos.Row<0 || pos.Row >= RowBoard || pos.Column < 0 || pos.Column >= ColumnBoard)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        public void validatePosition(Position pos)
+        {
+            if (!positionValue(pos))
+            {
+                throw new BoardException("Invalid Position");
+            }
         }
 
     }
