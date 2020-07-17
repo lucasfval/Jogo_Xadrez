@@ -17,7 +17,10 @@ namespace Board
             PiecesBoard = new Pieces[RowBoard, ColumnBoard];
         }
 
-
+        public Pieces piece(int RowBoard,int ColumnBoard)
+        {
+            return PiecesBoard[RowBoard, ColumnBoard];
+        }
 
     }
 }
