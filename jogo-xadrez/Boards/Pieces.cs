@@ -19,6 +19,11 @@ namespace Board
             MoveQuantity = 0;
         }
 
+        public void raiseMoviment()
+        {
+            MoveQuantity++;
+        }
+
 
 
     }
