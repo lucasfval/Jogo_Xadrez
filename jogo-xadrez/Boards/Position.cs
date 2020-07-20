@@ -15,6 +15,13 @@ namespace Board
             Column = column;
         }
 
+        public void defineValue(int row, int column)
+        {
+            Row = row;
+            Column = column;
+
+        }
+
         public override string ToString()
         {
             return Row + ", " + Column;

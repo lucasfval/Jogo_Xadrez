@@ -20,7 +20,10 @@ namespace jogo_xadrez
                     Console.WriteLine();
                     Console.Write("Origin: ");                    
                     Position origin = Screen.getChessPosition().toPosition();
-                    Console.Write("Destiny: ");
+                    bool[,] possibles = match.board.piece(origin).possibleMoves();
+                    Console.Clear();
+                    Screen.PrintBoard(match.board,possibles);
+                    Console.Write("Destiny: ");                                       
                     Position destiny = Screen.getChessPosition().toPosition();
                     match.makeMoviment(origin, destiny);
 

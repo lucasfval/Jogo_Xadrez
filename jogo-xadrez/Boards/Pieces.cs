@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Board
 {
-    class Pieces
+    abstract class Pieces
     {
         public Position Position { get; set; }
         public Color Color { get; protected set; }
@@ -24,6 +24,8 @@ namespace Board
             MoveQuantity++;
         }
 
+        public abstract bool[,] possibleMoves();
+        
 
 
     }
