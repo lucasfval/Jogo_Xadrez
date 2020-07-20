@@ -8,15 +8,15 @@ namespace Chess
     class ChessMatch
     {
         public Boards board { get; private set; }
-        private int turno;
-        private Color activePlayer;
+        public int turn { get; private set; }
+        public Color activePlayer { get; private set; }
         public bool finish { get; private set; }
 
 
         public ChessMatch()
         {
             board = new Boards(8, 8);
-            turno = 1;
+            turn = 1;
             activePlayer = Color.White;
             putPieces();
             finish = false;
@@ -29,6 +29,25 @@ namespace Chess
             Pieces caprturedPieces = board.removePiece(destiny);
             board.putPiece(p,destiny);
 
+        }
+
+        public void makePlay(Position origin, Position destiny)
+        {
+            makeMoviment(origin, destiny);
+            turn++;
+            changePlayer();
+        }
+
+        private void changePlayer()
+        {
+            if(activePlayer == Color.White)
+            {
+                activePlayer = Color.Black;
+            }
+            else
+            {
+                activePlayer = Color.White;
+            }
         }
 
         private void putPieces()
