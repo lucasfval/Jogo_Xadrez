@@ -38,6 +38,31 @@ namespace Chess
             changePlayer();
         }
 
+        public void validateOriginPosition(Position pos)
+        {
+            if (board.piece(pos) == null)
+            {
+                throw new BoardException("No piece in origin position.");
+            }
+            if(activePlayer != board.piece(pos).Color)
+            {
+                throw new BoardException("Wrong color piece.");
+            }
+            if (!board.piece(pos).existPossibleMoves())
+            {
+                throw new BoardException("No possible moves for this piece");
+            }
+        }
+
+
+        public void validateDestinyPosition(Position origin, Position destiny)
+        {
+            if(!board.piece(origin).canMoveTo(destiny))
+            {
+                throw new BoardException("Invalid destiny position.");
+            }
+        }
+
         private void changePlayer()
         {
             if(activePlayer == Color.White)
